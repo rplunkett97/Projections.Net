@@ -41,7 +41,7 @@ except ImportError:
 
 import psycopg2
 
-urlparse.uses_netloc.append("postgres")
+urlparse.netloc.append("postgres")
 url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
 conn = psycopg2.connect(
  database=url.path[1:],
