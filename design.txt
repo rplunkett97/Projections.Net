@@ -1,0 +1,45 @@
+As explained in the documentation, our site is used to maximize a user's fantasy basketball team. Essentially, we have created
+projections for how we believe all of the active players in the NBA will do in the 2016-2017 season, used this information to
+rank the players on their value in a fantasy league, and created a compare function which allows you to looks for favorable trades
+in which you can trade big names for statistically comparable, less-hyped players. We implemented our project in four steps. First,
+we designed the website. Second, we used the "import html" feature of Google Drive to pull data from basketballreference.com. Third,
+we created our projections algorithm and comparison algorithm. Lastly, we combined all the relevant features to make a working
+website.
+
+In terms of website design, we used CS50 Finance as a template. We changed the tabs to better suit our needs, putting in Add, Drop,
+Search, and Compare as our tabs.
+
+Importing the data into a Google Drive table, we used what we learned in Mashup to import that data into a SQL table. In total, we
+had five SQL tables. One housed the data of every NBA who played in the last six seasons, one housed the names of every player
+currently in the NBA, one had our projections for each player, one housed the users, and the final one housed the z-scores of every
+player.
+
+To create the projections, we first had to create a database with the statistics of the players in the NBA. We took this information
+from basketball-reference.com, which has season averages of every player in the last 6 seasons, and put it all into a SQLite table.
+We only took those players that are still active, because they're the only ones available for a fantasy league. With these stats,
+we essentially plotted a data point for every statistic, and drew a cubic best fit line to project what their season average would
+be for the 2016-2017 season. We took these projections and put them into a new SQLite table called projections, with primary index
+of the player's name "Player" (we assured that there were no duplicates in the league).
+
+Next, we created a table with all the same fields as projections, except it was filled with a players z-score in each statistic,
+which is a measure of their standing amongst all players in the league for that stat. Summing across a row, to give a players
+z-score sum, gives a general measure of a players "fantasy value" (because fantasy awards points for stats), so we could order the
+table by player's fantasy rank. Then, we created a new field and assigned each player a rank, an integer which was equal to their
+row number. To create a comparison function, we just draw on the table the 10 players above and 10 players below the input player
+(by taking an absolute value of the difference between rank all players and selecting only those where this value was less than 10),
+and print that into an HTML template called "compared.html".
+
+To search for a specific player's projected stats, we just returned the row of the player who matched the "player_name" input for
+the HTML form. Adding a player, or dropping a player, from your team updates the "owner" field of projection, which is null unless a
+player is owned by a user on the website, and filled with that user's user id. Adding a player changes this field to the current
+users id, dropping a player just sets this field to NULL. Both of these actions require that a player be available or on your team,
+respectively. Thus, in the index, we show all of the players with owner equal to the current user's id. 
+
+For all of these HTML forms, we implented error handling, where we pass a variable called "error", which is defined as a string
+reading the user's error, only if there is one upon a post request, and HTML then prints "error" in red at the bottom of the form. 
+We also implemented a typeahead function using javascript, similarly to the way we did in Mashup, where we created a js script which
+called upon a "find" function in application, which searches and jsonifies all players in projections (database) which match "q",
+the input, from a user. This match was done with a wildcard at the beginning and end of q, to allow for last-name and first-name
+search. This required imported a few javascript functions, which we took from pset8. Additionally, each HTML form extended our
+layout form, which defines the nav-bar across the top of the website, and then created different add or dropor compare or search
+features within.

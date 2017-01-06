@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Team
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Points</th>
+                    <th>Assists</th>
+                    <th>Rebounds</th>
+                    <th>Steals</th>
+                    <th>Blocks</th>
+                    <th>3pts</th>
+                    <th>FG%</th>
+                    <th>FT%</th>
+                </tr>
+            </thead>
+                {% for player in players %}
+                <tr>
+                    <td>{{ player.Player }}</td>
+                    <td>{{ player.PTS }}</td>
+                    <td>{{ player.AST }}</td>
+                    <td>{{ player.TRB }}</td>
+                    <td>{{ player.STL }}</td>
+                    <td>{{ player.BLK }}</td>
+                    <td>{{ player.ThreePM }}</td>
+                    <td>{{ player.FGpct }}</td>
+                    <td>{{ player.FTpct }}</td>
+                </tr>
+                {% endfor %}
+    </table>
+{% endblock %}

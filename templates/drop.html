@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Drop Player
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('drop') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <input autocomplete="off" id="q" autofocus class="form-control" name="player_name" placeholder="Player Name" type="text"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Drop</button>
+            </div>
+        </fieldset>
+    </form>
+    {% if error %}
+        <div class="error_message">
+            {{ error }}        
+        </div>
+    {% endif %}
+{% endblock %}

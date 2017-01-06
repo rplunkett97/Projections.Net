@@ -1,0 +1,33 @@
+Fantasy sports have become wildly popular in the last few years. Once just a past-time for zealous fans, they have become a major
+industry. Daily sports leagues give out millions in winnings, and there's even a television show based around a football league.
+However, things could be improved. The projections made by ESPN and the like are rarely accurate, and for a casual player, it's
+difficult to compare players. That's where our project comes in. We've made a website that lets fantasy owners add players to a
+fantasy basketball team. There are three main facets of our website: adding players to a fantasy team, projecting their scores, and 
+comparing them to the most similar player currently in the NBA.
+
+First, a user needs to register for our website. This allows us to keep track of the users similar to CS50Finance. After they
+register, the user will see an index page. On top of the screen, there are four tabs: add, drop, player search, and compare. The add
+tab will allow the user to create a fantasy team with available NBA players. The website is designed for a single league, and any
+player that gets added to a team will not be able to be added to any other team. Drop will just take the player off the team. The
+home page, or index, that appears when the user logs in will show them their team and projected fantasy stats. Using a machine
+learning linear regression algorithm, we were able to project every NBA player's average field goal and free throw percentage, total
+rebounds, assists, three pointers made, points, blocks, and steals per game for the entire 2016-17 season. This website will be
+particularly useful when drafting a team at the beginning of the season, and finding potential trades between big names and
+comparable players.
+
+Outside of the projections, we also have the compare tab. This is the crux of our project. Being able to target players on the
+waiver wire can be difficult if someone doesn't pay a lot of attention to every game played. We've made an incredibly useful
+comparison model. This enables owners to type in a current player's name, and we spit out the most statistically similar players in
+the league. While it's obvious that LeBron James is an elite player, it may not be as obvious to a casual owner that lower caliber
+players like Damian Lillard and Jae Crowder are statistically similar. Having this function will allow owners to target lower tier
+players on the waiver wire, through trades, and in the draft.
+
+All the projections and z-scores for the comparisons were done offline. All a user needs to do is access the website and fill in
+any user prompts the website gives them.
+
+Unfortunately, there were a few things we were unable to accomplish due to our lack of access to various algorithms and data. First,
+because no rookies were in the league last year and our algorithm was based on previous seasons' performance, we are unable to
+project rookies. Therefore, we didn't include rookies in the database, so users won't be able to look them up - it will just tell
+them to input a valid player, the same way as if they were to type a retied player or the name of someone not in the NBA. Because of
+our of access to any kind of algorithm, we had to make our own. We were only able to use stats from before the season started, so
+our website only  works as a prediction for the entire season rather than projecting week by week like most fantasy sites do.
