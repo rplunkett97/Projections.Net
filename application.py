@@ -34,12 +34,12 @@ class SQL(object):
 import os
 import sqlalchemy
 
-from urlparse import urlparse
+import urllib.parse
 
 import psycopg2
 
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
+urllib.parse.uses_netloc.append("postgres")
+url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
 conn = psycopg2.connect(
  database=url.path[1:],
  user=url.username,
