@@ -63,7 +63,6 @@ lazy-object-proxy==1.2.1
 locket==0.2.0
 lxml==3.6.4
 MarkupSafe==0.23
-matplotlib==1.5.3
 mistune==0.7.3
 mpmath==0.19
 multipledispatch==0.4.8
@@ -78,7 +77,6 @@ numpy==1.11.2
 oauthlib==2.0.0
 odo==0.5.0
 openpyxl==2.3.2
-pandas==0.19.1
 partd==0.3.6
 passlib==1.6.5
 pathlib2==2.1.0
