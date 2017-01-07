@@ -34,7 +34,10 @@ class SQL(object):
 import os
 import sqlalchemy
 
-import urllib.parse
+try:
+    from urllib.parse import urlparse
+except ImportError:
+     from urlparse import urlparse
 
 import psycopg2
 
