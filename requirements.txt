@@ -19,7 +19,7 @@ cloudpickle==0.2.1
 colorama==0.2.5
 configobj==5.0.6
 contextlib2==0.5.3
-cryptography==1.5
+cryptography==3.2
 CS50==0.2
 cycler==0.10.0
 Cython==0.24.1
