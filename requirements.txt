@@ -61,7 +61,7 @@ jupyter-console==5.0.0
 jupyter-core==4.2.0
 lazy-object-proxy==1.2.1
 locket==0.2.0
-lxml==3.6.4
+lxml==4.6.3
 MarkupSafe==0.23
 mistune==0.7.3
 mpmath==0.19
