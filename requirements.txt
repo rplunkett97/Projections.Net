@@ -107,7 +107,7 @@ pytest==2.9.2
 python-dateutil==2.6.0
 python-openid==2.2.5
 pytz==2016.7
-PyYAML==3.12
+PyYAML==5.4
 pyzmq==15.4.0
 QtAwesome==0.3.3
 qtconsole==4.2.1
