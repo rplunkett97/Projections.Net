@@ -133,7 +133,7 @@ tornado==4.4.1
 traitlets==4.3.0
 twython==3.4.0
 unicodecsv==0.14.1
-urllib3==1.7.1
+urllib3==1.26.5
 urlparse2==1.1.1
 virtualenv==15.1.0
 wcwidth==0.1.7
