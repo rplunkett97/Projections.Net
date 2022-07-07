@@ -114,7 +114,7 @@ qtconsole==4.2.1
 QtPy==1.1.2
 recordtype==1.1
 redis==2.10.5
-requests==2.2.1
+requests==2.20.0
 requests-oauthlib==0.7.0
 rope-py3k==0.9.4.post1
 simplegeneric==0.8.1
